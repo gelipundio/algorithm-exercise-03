@@ -34,9 +34,9 @@ Your solution must to return a boolean value, example:
   find([34, 23, 5, 342, 3, 12, 45], 10) // false
 ```
 
-
 Hints:
-1. do you know bubble sort?
-2. do you know binay search?
+1. do you know the importance to sort data?
+2. do you know bubble sort?
+3. do you know binary search?
 
 
