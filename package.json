@@ -1,7 +1,7 @@
 {
   "name": "algorithm-exercise-03",
   "version": "1.0.0",
-  "description": "find the number",
+  "description": "bubble",
   "main": "index.js",
   "scripts": {
     "test": "mocha"

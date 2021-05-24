@@ -1,36 +1,48 @@
 const { expect } = require('chai')
-const { exists } = require('../solution')
+const { bubble } = require('../solution')
 
 describe('Sumarize', function() {
     const scenarios = [
-        { testArgs: {
-          list: [10, 29, 2],
-          find: 4
-        }, result: false },
-        { testArgs: {
-          list: [10, 23, 45, 23, 75, 1, 4, 123],
-          find: 75
-        }, result: true },
-        { testArgs: {
-          list: [],
-          find: 10
-        }, result: false },
-        { testArgs: {
-          list: [5, 4, 6, 2, 1, 4, 6, 7, 3, 2, 3, 4, 5, 5, 6, 2, 24, 45, 6, 3, 1, 23, 234, 234, 234, 234],
-          find: 234
-        }, result: true },
-        { testArgs: {
-          list: null,
-          find: 156
-        }, result: false },
-        { testArgs: {
-          list: undefined,
-          find: 120
-        }, result: false },
+        {
+          test: [],
+          result: []
+        },
+        {
+          test: [1, 0],
+          result: [0, 1]
+        },
+        {
+          test: [0],
+          result: [0]
+        },
+        {
+          test: [0, -1],
+          result: [-1, 0]
+        },
+        {
+          test: [-1, -3],
+          result: [-3, -1]
+        },
+        {
+          test: [1, 6, 7],
+          result: [1, 6, 7]
+        },
+        {
+          test: [34, 12, 1, 5, 0, 103],
+          result: [0, 1, 5, 12, 34, 103]
+        },
+        {
+          test: [0, 45, 1, 234, 11111, 23, 43],
+          result: [0, 1, 23, 43, 45, 234, 11111]
+        },
+        {
+          test: [5, 10, 200, -1, 0, 23, 56],
+          result: [-1, 0, 5, 10, 23, 56, 200]
+        },
+        
     ]
-    scenarios.forEach(scenario => it(`Should return ${scenario.result} when the array is ${JSON.stringify(scenario.testArgs.list)} and the number to find is ${scenario.testArgs.find}`, function() {
-        const result = exists(scenario.testArgs.list, scenario.testArgs.find)
-        expect(result).to.be.a('boolean')
-        expect(result).to.equal(scenario.result)
+    scenarios.forEach(scenario => it(`Should return ${scenario.result} when the array is ${JSON.stringify(scenario.test)}`, function() {
+        const result = bubble(scenario.test)
+        expect(result).to.deep.equal(scenario.result)
     }))
 })
